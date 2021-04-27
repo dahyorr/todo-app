@@ -1,13 +1,218 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #1b1617;
+  font-family: "Roboto", sans-serif;
+  color: white;
 }
+
+.flex {
+  display: flex;
+}
+
+.container {
+  margin: auto;
+  max-width: 1280px;
+}
+
+.title {
+  font-weight: 900;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+}
+
+.btn {
+  padding: 0.8rem 1rem;
+  border: none;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.btn:hover {
+  transition: all 0.5s;
+}
+
+.red-text {
+  color: #cf2c2c;
+}
+
+.btn-green {
+  background-color: #25af6f;
+  color: white;
+}
+.btn-green:hover {
+  background-color: #1f8857;
+}
+
+.btn-red {
+  background-color: #cf2c2c;
+  color: white;
+}
+.btn-red:hover {
+  background-color: #a82929;
+}
+
+.btn-grey {
+  background-color: #696969;
+  color: white;
+}
+.btn-grey:hover {
+  background-color: #504f4f;
+}
+
+.App > .container {
+  height: calc(100vh - 50px);
+  align-items: center;
+  justify-content: center;
+}
+
+.Nav {
+  background-color: #62B6CB;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Wrapper {
+  height: 95%;
+  width: 100%;
+}
+
+.TaskManage {
+  height: 15%;
+  padding: 1rem 5rem;
+}
+.TaskManage h1 {
+  border-bottom: white solid 2px;
+}
+.TaskManage > div {
+  margin-top: 0.7rem;
+}
+
+.TaskList {
+  height: 85%;
+  padding: 1rem 5rem;
+  overflow: auto;
+}
+.TaskList::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #454955;
+  background-color: #454955;
+}
+.TaskList::-webkit-scrollbar {
+  width: 8px;
+  background-color: #454955;
+}
+.TaskList::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 15px;
+}
+
+.Task {
+  background-color: #454955;
+  padding: 1rem 1.5rem;
+  min-height: 50px;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+.Task p {
+  margin: 0.5rem 0;
+}
+.Task .remove-icon {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  color: #c0bcbc;
+  transition: all 0.5s;
+}
+.Task .remove-icon:hover {
+  color: white;
+  transform: scale(1.1);
+}
+.Task .small {
+  font-size: 0.9rem;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-content {
+  width: 500px;
+  height: 350px;
+  background-color: #1b1617;
+  color: white;
+}
+.modal .modal-content .modal-header {
+  height: 50px;
+  background-color: #62B6CB;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+}
+.modal .modal-content .modal-header div {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+.modal .modal-content .modal-body {
+  height: 240px;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+.modal .modal-content .modal-body input, .modal .modal-content .modal-body textarea {
+  display: block;
+  width: 90%;
+  margin: 0 auto 10px auto;
+  font-family: "Roboto", sans-serif;
+  background-color: #454955;
+  color: white;
+  border: 1px solid #62B6CB;
+  border-radius: 10px;
+  outline: none;
+}
+.modal .modal-content .modal-body input:focus, .modal .modal-content .modal-body textarea:focus {
+  border: 2px solid #62B6CB;
+}
+.modal .modal-content .modal-body input {
+  height: 30px;
+  font-size: 0.9rem;
+  padding: 0 0.4rem;
+}
+.modal .modal-content .modal-body textarea {
+  height: 80px;
+  resize: none;
+  padding: 0.2rem 0.4rem;
+}
+.modal .modal-content .modal-body label {
+  display: block;
+  width: 90%;
+  margin: 0 auto 2px auto;
+  color: white;
+}
+.modal .modal-content .modal-footer {
+  height: 60px;
+  background-color: #62B6CB;
+}
+.modal .modal-content .modal-footer div {
+  float: right;
+}/*# sourceMappingURL=index.css.map */

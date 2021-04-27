@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+$black-color: #1b1617;
+$grey-color: #454955;
+$blue-color: #62B6CB;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $black-color;
+    font-family: 'Roboto', sans-serif;
+    color: white
+}
+.flex{display: flex;}
+.container{
+    margin: auto;
+    max-width: 1280px;
+}
+.title{
+    font-weight: 900;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+.btn{
+    padding: 0.8rem 1rem;
+    border: none;
+    margin: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 15px;
+    cursor: pointer;
+    &:hover{
+        transition: all 0.5s;
+    }
+}
+.red-text{
+    color: #cf2c2c;
+}
+.btn-green{
+    background-color: #25af6f;
+    color: white;
+    &:hover{
+        background-color: #1f8857;
+    }
+}
+.btn-red{
+    background-color: #cf2c2c;
+    color: white;
+    &:hover{
+        background-color: #a82929;
+    }
+}
+.btn-grey{
+    background-color: #696969; 
+    color: white;
+    &:hover{
+        background-color: #504f4f;
+    }
+}
+
+
+.App{
+    & >.container{
+        height: calc(100vh - 50px);
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.Nav{
+    background-color: $blue-color;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Wrapper{
+    height: 95%;
+    width: 100%;
+}
+
+.TaskManage{
+    height: 15%;
+    padding: 1rem 5rem;
+    h1{
+        border-bottom: white solid 2px;
+    }
+    >div{
+        margin-top: 0.7rem;
+    }
+}
+
+.TaskList{
+    height: 85%;
+    padding: 1rem 5rem;
+    overflow: auto;
+    &::-webkit-scrollbar-track{
+	    -webkit-box-shadow: inset 0 0 6px $grey-color;
+	    box-shadow: inset 0 0 6px $grey-color;
+	    background-color: $grey-color;
+    }
+
+    &::-webkit-scrollbar{
+        width: 8px;
+        background-color: $grey-color;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: white;
+        border-radius: 15px;
+    }
+}
+
+.Task{
+    background-color: $grey-color;
+    padding: 1rem 1.5rem;
+    min-height: 50px;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    p{
+        margin: 0.5rem 0;
+    }
+    margin-bottom: 1.5rem;
+    .remove-icon{
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+        color: rgb(192, 188, 188);
+        transition: all 0.5s;
+        &:hover{
+            color: white;
+            transform: scale(1.1);
+        }
+    }
+    .small{
+        font-size: 0.9rem;
+    }
+}
+
+.modal{
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom:0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal-content{
+        width: 500px;
+        height: 350px;
+        background-color: $black-color;
+        color: white;
+        .modal-header{
+            height: 50px;
+            background-color: $blue-color;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            div{
+                position: absolute;
+                right: 20px;
+                cursor: pointer;
+            }
+        }
+        .modal-body{
+            height: 240px;
+            padding: 0.5rem 1rem;
+            color: white;
+            input, textarea{
+                display: block;
+                width: 90%;
+                margin: 0 auto 10px auto;
+                font-family: 'Roboto', sans-serif;
+                background-color: $grey-color;
+                color: white;
+                border: 1px solid $blue-color;
+                border-radius: 10px;
+                outline: none;
+                &:focus{
+                    border: 2px solid $blue-color;
+                }
+            }
+            input{
+                height: 30px;
+                font-size: 0.9rem;
+                padding: 0 0.4rem;
+            }
+            textarea{
+                height: 80px;
+                resize: none;
+                padding: 0.2rem 0.4rem;
+                
+            }
+            label{
+                display: block;
+                width: 90%;
+                margin: 0 auto 2px auto;
+                color: white;
+            }
+        }
+        .modal-footer{
+            height: 60px;
+            background-color: $blue-color;
+            div{
+                float: right;
+            }
+        }
+        
+    }
+}

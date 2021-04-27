@@ -1,0 +1,6 @@
+export const CREATE_TASK = 'CREATE_TASK'
+export const CLEAR_TASKS = 'CLEAR_TASKS'
+export const REMOVE_TASK = 'REMOVE_TASK'
+export const FETCH_TASKS = 'FETCH_TASKS'
+export const WRITE_ERROR = 'WRITE_ERROR'
+export const READ_ERROR = 'READ_ERROR'
