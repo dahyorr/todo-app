@@ -1,24 +1,21 @@
+import Modal from "./Modal"
+import ModalBody from "./ModalBody"
+import ModalFooter from "./ModalFooter"
+
 const ClearAllModal = ({clearTasks, onClose, onClear}) => {
     if(clearTasks) return(
-        <div className="ClearallModal modal" onClick={onClose}>
-            <div className="modal-content" onClick={e=>e.stopPropagation()}>
-                <div className="modal-header">
-                    <div className="close-modal fas fa-times" onClick={onClose}></div>
-                </div>
-            
-                <div className="modal-body">
+        <Modal onClose={onClose} headerText={'Clear All ?'}>
+                <ModalBody>
                         <p>Are you sure you want to clear all tasks</p>            
-                </div>
+                </ModalBody>
 
-                <div className="modal-footer">
+                <ModalFooter>
                     <div>
-                    <button className='btn btn-grey' onClick={onClose}><i className='fas fa-ban'></i> Cancel</button>
-                    <button className='btn btn-red' onClick={onClear}><i className='fas fa-trash'></i>  Clear all</button>
-
+                        <button className='btn btn-grey' onClick={onClose}><i className='fas fa-ban'></i> Cancel</button>
+                        <button className='btn btn-red' onClick={onClear}><i className='fas fa-trash'></i>  Clear all</button>
                     </div>
-                </div>
-            </div>
-        </div>
+                </ModalFooter>
+        </Modal>
     )
     else return null
 }

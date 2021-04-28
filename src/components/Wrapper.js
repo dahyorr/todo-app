@@ -1,13 +1,14 @@
 import {useState} from "react"
 import {connect} from 'react-redux'
 import moment from 'moment'
-import { createTask, clearAllTasks } from "../actions"
+import { createTask, clearAllTasks, clearError } from "../actions"
 import AddTaskModal from "./AddTaskModal"
 import ClearAllModal from "./ClearAllModal"
 import TaskList from "./TaskList"
 import TaskManage from "./TaskManage"
+import ErrorModal from "./ErrorModal"
 
-const Wrapper = ({createTask, clearAllTasks}) =>{
+const Wrapper = ({createTask, clearAllTasks, clearError}) =>{
     const [addTask, setAddTask] = useState(false)
     const [clearTasks, setClearTasks] = useState(false)
     const [titleValue, setTitleValue] = useState('')
@@ -15,7 +16,7 @@ const Wrapper = ({createTask, clearAllTasks}) =>{
     const [dateValue, setDateValue] = useState('')
     
     const toggleAddTask = () =>{
-        setDateValue(moment().format("YYYY-MM-DDTHH:mm"))
+        setDateValue(moment().add(1,'days').format("YYYY-MM-DDTHH:mm"))
         setAddTask(!addTask)
     }
     
@@ -54,7 +55,8 @@ const Wrapper = ({createTask, clearAllTasks}) =>{
                 handleTaskCreate={handleTaskCreate}
                 />
             <ClearAllModal clearTasks={clearTasks} onClose={()=>setClearTasks(false)} onClear={onTaskClear}/>
+            <ErrorModal onClose={()=>clearError()}/>
         </div>
     )
 }
-export default connect(null, {createTask, clearAllTasks})(Wrapper)
+export default connect(null, {createTask, clearAllTasks, clearError})(Wrapper)

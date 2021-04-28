@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
-// import { CLEAR_TASKS, CREATE_TASK, REMOVE_TASK} from '../actions/types'
-import {FETCH_TASKS, WRITE_ERROR, READ_ERROR } from '../actions/types'
+import { } from '../actions/types'
+import {FETCH_TASKS, WRITE_ERROR, READ_ERROR, CLEAR_ERROR,
+     CLEAR_TASKS, CREATE_TASK, REMOVE_TASK } from '../actions/types'
 
 const taskReducer = (state={taskList: [], readError: '', writeError:''}, action) =>{
     switch(action.type){
@@ -10,13 +11,11 @@ const taskReducer = (state={taskList: [], readError: '', writeError:''}, action)
             return {...state, writeError: action.payload}
         case READ_ERROR:
             return {...state, readError: action.payload}
-        // case CREATE_TASK:
-        //     return state
-        // case CLEAR_TASKS:{
-        //     return state
-        // }
-        // case REMOVE_TASK:
-        //     return state
+        case CLEAR_ERROR:
+            return {...state, readError: '', writeError: ''}
+        case CREATE_TASK:
+        case CLEAR_TASKS:
+        case REMOVE_TASK:
         default:
             return state
     }

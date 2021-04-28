@@ -1,4 +1,4 @@
-import {CREATE_TASK, CLEAR_TASKS, REMOVE_TASK, READ_ERROR, FETCH_TASKS, WRITE_ERROR} from './types'
+import {CREATE_TASK, CLEAR_TASKS, REMOVE_TASK, READ_ERROR, FETCH_TASKS, WRITE_ERROR, CLEAR_ERROR} from './types'
 import {db} from '../firebase'
 
 export const createTask = (title, description, deadlineDate) => async dispatch =>{
@@ -68,5 +68,11 @@ export const fetchTasks = () => async dispatch =>{
             type: READ_ERROR,
             payload: e.message
         })
+    }
+}
+
+export const clearError = () =>{
+    return{
+        type: CLEAR_ERROR,
     }
 }

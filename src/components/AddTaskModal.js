@@ -1,13 +1,13 @@
+import Modal from "./Modal"
+import ModalFooter from "./ModalFooter"
+import ModalBody from "./ModalBody"
+
 const AddTaskModal = ({addTask, onClose, titleValue, descriptionValue, dateValue, onInputChange, handleTaskCreate}) => {
     if(addTask) return(
-        <div className="AddTaskModal modal" onClick={onClose}>
-            <div className="modal-content" onClick={e=>e.stopPropagation()}>
-                <div className="modal-header">
-                    <h3>Fill in the form below to create a new task</h3>
-                    <div className="close-modal fas fa-times" onClick={onClose}></div>
-                </div>
-            
-                <div className="modal-body">
+            <Modal onClose={onClose} 
+            headerText={'Fill in the form below to create a new task'}
+            >
+                <ModalBody>
                     <form>
                         <label htmlFor="title">Title</label>
                         <input name='title' type="text" onChange={onInputChange} value={titleValue}/>
@@ -18,16 +18,16 @@ const AddTaskModal = ({addTask, onClose, titleValue, descriptionValue, dateValue
                         <label htmlFor="deadline">Deadline</label>
                         <input name='deadline' type="datetime-local" value={dateValue} min={dateValue} onChange={onInputChange}/>
                     </form>
-                </div>
+                </ModalBody>
 
-                <div className="modal-footer">
+                <ModalFooter>
                     <div>
-                    <button className='btn btn-grey' onClick={onClose}><i className='fas fa-ban'></i> Cancel</button>
-                    <button className='btn btn-green' onClick={handleTaskCreate}><i className='fas fa-plus'></i> Create Task</button>
+                        <button className='btn btn-grey' onClick={onClose}><i className='fas fa-ban'></i> Cancel</button>
+                        <button className='btn btn-green' onClick={handleTaskCreate}><i className='fas fa-plus'></i> Create Task</button>
                     </div>
-                </div>
-            </div>
-        </div>
+                </ModalFooter>
+                </Modal>
+
     )
     else return null
 }
